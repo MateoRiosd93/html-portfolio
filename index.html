@@ -58,11 +58,25 @@
         </nav>
     </header>
 
+    <!-- El iframe es una etiqueta especial que nos permite insertar otra pagina web en este caso un video -->
+    <!-- Si no queremos q nuestra pagina se vea en un iframe de otra pagina podemos evitarlo con unos meta en el head que bloquean esto -->
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/3nYLTiY5skU?si=0quvaI6-WLT63V-l"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+
     <!-- para que en la etiqueta video aparezcan los controles de play y demas se debe agregar el atributo controls  -->
     <!-- En caso de queres que apenas entren a tu pagina se ejecute el video hay q ponerle el atributo autoplay ademas del muted por temas de experiencia, suele ser util para un video de fondo -->
     <!-- En caso de querer que se quede en un ciclo, se ejecute constantemente se le agrega la propiedad loop -->
     <!-- En caso de querer tener un poster para el video debemos asignarle el poster en la propiedad poster: con la ruta del poster -->
-    <video controls poster="assets/poster.jpg" src="assets/Feid, Young Miko - Classy 101 (Official Video).mp4" width="500"></video>
+    <!-- <video controls poster="assets/poster.jpg" src="assets/Feid, Young Miko - Classy 101 (Official Video).mp4"
+        width="500"></video> -->
+
+
+    <!-- Los controls cambias segun el navegador, es decir su estilo puede cambiar -->
+    <!-- <audio controls poster="assets/poster.jpg" src="assets/Feid, Young Miko - Classy 101 (Official audio).mp4"
+        width="500"></audio> -->
+
 
     <!-- El main siempre sera el contenido que suele cambiar () -->
     <main>
@@ -88,6 +102,7 @@
         <!-- El atributo id siempre debera tener un valor unico, en caso de agregarlo -->
         <!-- Podemos utilizar etiquetas anchor para descargar (imagenes - audio - video) con el atributo download-->
         <!-- Importante solo sirve para descargar recursos de nuestro propio dominio. -->
+        <!-- IMPORTANTE: un atributo excelente para el performance en las imagenes para que se carguen apenas se visualicen es el atributo loading:lazy -->
         <a download href="assets/me.jpg">
             <img src="assets/me.jpg" width="150" title="Foto de Mateo Rios"
                 alt="Foto de perfil de Mateo Rios con camisa negra y fondo blanco.">
