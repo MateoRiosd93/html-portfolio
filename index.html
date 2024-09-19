@@ -1,0 +1,232 @@
+<!-- Que significa HTML samantico: que tiene significado, describe el contenido de forma correcta -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Codificacion -->
+    <meta charset="UTF-8">
+    <!-- Se utiliza para que el ancho de la pantalla sea adaptable: ancho de la pantalla sera el ancho del dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- El titulo que va a tener nuestro documento en la pestaña: Implicaciones importantes en el SEO -->
+    <title>Portafolio Mateo Rios</title>
+    <!-- Describe el contenido de nuestra pagina, usualmente aparece como descripcion de lo que te sale en google -->
+    <meta name="description"
+        content="Portafolio de Mateo Rios, mas de 5 años de experiencia como Ingeniero de Software">
+    <!-- Este meta esta chevere para cambiar el color de la ventana del navegador. segun el estilo de nuestra pagina -->
+    <meta name="theme-color" content="#57CC99">
+    <!-- Favicon: es el icon que sale en la parte izq de la pesataña -->
+    <link rel="icon" type="image/jpg" href="/assets/me.jpg">
+
+    <!-- Open Graph - Protocolo de Open Graph -->
+    <!-- Si no se pone esta etiqueda og:title hace un fallback al title -->
+    <!-- Estas son las mas habituales y con las cuales ya se marca una diferencia -->
+    <meta name="og:title" content="Portafolio Mateo Rios - Ingeniero de Software">
+    <meta name="og:description"
+        content="Portafolio Mateo Rios, más de 5 años en experiencia como Ingeniero de Software">
+    <meta name="og:image" content="/assets/me.jpg">
+    <meta name="og:image:alt" content="Imagen de perfil del Ingeniero de Software Mateo Rios">
+    <meta name="og:url" content="https://mateo.dev">
+
+    <!-- Para tema de SEO en Open Graph -->
+    <!-- Lo que hace la siguiente etiqueta es enlazar a un  recurso externo la cual puede ser una alternativa de nuestra pagina -->
+    <!-- Le informamos al navegador que se tiene una pag alternativa segun el caso. para este ej el idioma -->
+    <link rel="alternate" href="https://mateo.dev/es" hreflang="es-ES">
+    <!-- Le indicamos cual es la pagina a la cual debe redirigir -->
+    <!-- ej escribimos www.mateo.dev el nos redirige a https://mateo.dev -->
+    <link rel="canonical" href="https://mateo.dev">
+
+    <!-- Se pueden colocar ademas, styles scripts... -->
+</head>
+
+<body>
+    <!-- La semantica es muy importante en html: esto hace que nuestro codigo sea mas claro y legible, ademas  que se genera un impacto positivo en la accesibilidad y el SEO-->
+    <!-- SEO: Search engine optimization (optimizacion para motores de busqueda) es un conjunto de estrategias y tecnicas las cuales hacen que una pagina web aparezca organizamente en buscadores -->
+
+    <!-- Etiqueta <> la cual contiene etiqueta de abertura y de cierre, con el contenido se llamaria elemento -->
+    <header>
+        <h1>Portafolio de Mateo Rios 🤓</h1>
+        <nav>
+            <!-- El anchor es uno de los elementos mas importantes nos permite navegar tanto a otras pages como dentro de nuestra misma page -->
+            <!-- Para las navecgaciones internar #hash donde el va a buscar el elemento con el id correspondiente -->
+            <a href="#experiencia">Experiencia</a> <!-- enlance interno -->
+            <a href="#proyectos">Proyectos</a> <!-- enlance interno -->
+            <!-- Importante el target para que te abra una nueva pestaña con el enlace -->
+            <!-- rel: noreferrer importante por temas de seguridad: le da mucha informacion a la siguiente pagina. -->
+            <a href="https://www.linkedin.com/in/mateo-r%C3%ADos-diaz-16458b186/" target="_blank"
+                rel="noreferrer">LinkedIn</a> <!-- enlance externo -->
+        </nav>
+    </header>
+
+    <!-- para que en la etiqueta video aparezcan los controles de play y demas se debe agregar el atributo controls  -->
+    <!-- En caso de queres que apenas entren a tu pagina se ejecute el video hay q ponerle el atributo autoplay ademas del muted por temas de experiencia, suele ser util para un video de fondo -->
+    <!-- En caso de querer que se quede en un ciclo, se ejecute constantemente se le agrega la propiedad loop -->
+    <!-- En caso de querer tener un poster para el video debemos asignarle el poster en la propiedad poster: con la ruta del poster -->
+    <video controls poster="assets/poster.jpg" src="assets/Feid, Young Miko - Classy 101 (Official Video).mp4" width="500"></video>
+
+    <!-- El main siempre sera el contenido que suele cambiar () -->
+    <main>
+        <p>Más de 5 años de experiencia como <strong>Ingeniero de Software</strong>, especializado en tecnologías como
+            React,
+            Angular, Next.js y Astro. Con un enfoque en la accesibilidad, rendimiento y diseño
+            responsivo, garantiza aplicaciones web innovadoras que destacan por su eficiencia y usabilidad.</p>
+
+        <h2 id="experiencia">Experiencia</h2>
+
+        <!-- Hay etiquetas que no necesariamente necesitan etiqueta de cierre pero es buena practica hacerlo -->
+        <ul>
+            <li>Bootcamp React, Politecnico JIC, 2018 - 2019</li>
+            <li>IAS Software, 2019 - Actualidad</li>
+        </ul>
+
+        <!-- Cuando son elementos reemplazables no se necesita etiqueta de cierre: img, inputs... -->
+
+        <!-- Atributos: Proporcionan informacion adicional a los elementos -->
+        <!-- Atributos globales: Se pueden utilizar en cualquier tipo de etiqueda ej: class, id... -->
+        <!-- Atributos especificos: Son especificos de cada etiqueta ej: el src en una <img>... -->
+        <!-- Existen atributos que son booleanos que no necesitan un valor por ej: hidden -->
+        <!-- El atributo id siempre debera tener un valor unico, en caso de agregarlo -->
+        <!-- Podemos utilizar etiquetas anchor para descargar (imagenes - audio - video) con el atributo download-->
+        <!-- Importante solo sirve para descargar recursos de nuestro propio dominio. -->
+        <a download href="assets/me.jpg">
+            <img src="assets/me.jpg" width="150" title="Foto de Mateo Rios"
+                alt="Foto de perfil de Mateo Rios con camisa negra y fondo blanco.">
+        </a>
+
+        <!-- NOTA: Las etiquetas tienen unos estilos por defecto que se le conoce como user agent stylesheet -->
+        <h2 id="proyectos">Proyectos realizados</h2>
+
+        <aside>
+            <header>
+                <h3>Mis tecnologias favoritas</h3>
+            </header>
+            <!-- En las listas ordenadas pordemos hacer que sea por letras, numeros, empezar de un numero en especifico hacer reverse -->
+            <ol type="1" reversed start="10">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>React</li>
+                <li>Angolar</li>
+                </ul>
+        </aside>
+
+        <section>
+            <article>
+                <header>
+                    <h4>Sitio web empresarial</h4>
+                </header>
+                <p>Desarrollo de un sitio web coorporativo con una interfaz amigable y moderna</p>
+                <footer>
+                    <small>Tecnologias utilizadas: HTML, CSS, JavaScript</small>
+                </footer>
+            </article>
+            <article>
+                <header>
+                    <h4>Sitio web empresarial</h4>
+                </header>
+                <p>Desarrollo de un sitio web coorporativo con una interfaz amigable y moderna</p>
+                <footer>
+                    <small>Tecnologias utilizadas: HTML, CSS, JavaScript</small>
+                </footer>
+            </article>
+            <article>
+                <header>
+                    <h4>Sitio web empresarial</h4>
+                </header>
+                <p>Desarrollo de un sitio web coorporativo con una interfaz amigable y moderna</p>
+                <footer>
+                    <small>Tecnologias utilizadas: HTML, CSS, JavaScript</small>
+                </footer>
+            </article>
+        </section>
+
+        <section>
+            <h2>Preguntas frecuentes</h2>
+
+            <!-- El details y el sumary es un elemento muy util para mostrar detalles. -->
+            <details open>
+                <summary>Que estudios tienes?</summary>
+                <p>Estudie en la universidad Politecnico JIC una Ingenieria Informatica durante 5 años</p>
+            </details>
+
+            <details>
+                <summary>Cuales son tus hobbies?</summary>
+                <p>Me gusta mucho los deportes en especial el futbol, suelo jugar todos los fines de semana</p>
+            </details>
+
+            <details>
+                <summary>Cual es tu lenguaje favorito?</summary>
+                <p>Me encanta JavaScript, es un lenguaje muy versatil y con el que se pueden hacer muchas cosas.</p>
+            </details>
+        </section>
+
+        <section>
+            <h2>Formulario de contacto</h2>
+            <!-- dos propiedades el method y el action: esto de forma nativa si se usa un framework se puede realizar diferente -->
+            <form action="/" method="post">
+                <fieldset>
+                    <legend>Informacion personal</legend>
+                    <!-- Muy importante por accesibilidad que los label esten conectados con los input, deberia porder darse click en el label y dejarme escribir en el input relacionado -->
+                    <!-- 1ra forma de conectarlos o vincularlos con el for:"name" el name debe ser el mismo del id del input -->
+                    <!-- 2da forma de vincularlo es envolviendo el input con el label. -->
+                    <div>
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" placeholder="Mateo Rios Diaz" required>
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="mateorios993@gmail" required>
+                    </div>
+                </fieldset>
+                <!-- Importante: Siempre tratar de usar el type adecuado en los inputs, ayuda mucho a la UX -->
+                <fieldset>
+                    <legend>Informacion adicional</legend>
+                    <div>
+                        <label for="tel">Telefono</label>
+                        <input type="tel" id="tel" name="tel" placeholder="3104256562" required>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Otros</legend>
+                    <div>
+                        <label for="porque">Por que quieres contactar?</label>
+                        <select name="porque" id="porque">
+                            <option value="1">Trabajo</option>
+                            <option value="2">Duda</option>
+                            <option value="3">Mas informacion</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="terminos">Aceptas terminos y condiciones?</label>
+                        <input type="checkbox" name="terminos" id="terminos" required>
+                    </div>
+                    <div>
+                        <!-- datalist es un elemento que permite tener una lista de opciones para un buscador -->
+                        <!-- asociandolo a un input con la propiedad list y le colocamos el nombre del id del datalist asi asociara dichos valores -->
+                        <datalist id="lenguajes">
+                            <option value="JavaScript"></option>
+                            <option value="Python"></option>
+                            <option value="Java"></option>
+                            <option value="C#"></option>
+                        </datalist>
+                        <label for="">Con que lenguaje quieres que te ayude?
+                            <input list="lenguajes" name="lenguajes">
+                        </label>
+                    </div>
+                </fieldset>
+                <!-- NOTA: Se puede usar un input tipo submit pero lo mejor es usar un button que por defecto en un formulario ya seria de type submit -->
+                <button>Enviar contacto</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        Copyright © 2024 - Portfolio Mateo Rios.
+        <!-- Hay anchor muy interesantes ademas del http -->
+        <a href="mailto:mateorios993@gmail.com">Enviame un correo</a>
+        <a href="tel:+573104256562">Llamar por telefono</a>
+        <a href="https://wa.me/3104256562?text=Hola" target="_blank" rel="noreferrer">Enviar mensaje por WhatsApp</a>
+    </footer>
+</body>
+
+</html>
