@@ -1,0 +1,93 @@
+CSS es un lenguaje declarativo para darle estilos a nuestra pagina
+Cascading Style Sheet (Hojas de estilo)
+
+Cascada se requiere al orden que se aplica las reglas.
+
+regla CSS
+selector {
+    propiedad: valor -> declaracion
+}
+
+NOTA
+- currentColor toma el valor del color del elemento
+
+SELECTORES
+- El selector mas clasico es el atributo class en los elementos
+
+- En el css se hace referencia a una class con el ."nombre de la class"
+- Para un id se hace referencia con el #"nombre de la class"
+
+HERENCIA
+-Hay propiedades que se heredan por ejemplo el fontfamily que se pone el el body
+y se hereda a cada uno de los elementos, ej. color, font-size, font-family
+
+PSEUDOCLASE
+- :hover se activa o se visualiza cuando se pasa el valor por encima
+- :active se activa o se visualiza cuando se da clic sobre el elementos
+
+ESPECIFICIDAD
+Trata de agregar estilos a elementos, por ej algo cero especifico seria agregar estilos
+a un h1, ya que pueden haber muchos
+
+- Directamente a una clase
+- o clase combinadas
+- o utilizando operadores > ~ +
+
+CASCADA
+- La posicion en los estilos o reglas indica que estilos aplicar tomara lo ultimos estilos que apliques
+
+
+ELEMENTOS EN LINEA Y EN BLOQUE 
+- En linea ej span (a los elementos en linea no aplica ni width ni height, se comportan como texto)
+ya que que valor por defecto de estos elementos en display es inline.
+- Tanto grid como flex se comportan como display block solo que agregan propiedades para maquetar en ese contenido.
+
+BOX-MODEL
+- Contenido
+- Padding
+- Border
+- Margin
+
+NOTA: Todo esto anterior influye en el tamaño de la caja (todo menos el margin).
+Ej: si le pongo un width de 100 y height de 100 y ademas de eso agrego Padding de 10, 
+un borde de 5 y margin de 10 el total tamaño de la caja seria widthÑ 115 y height 115
+el margin lo que hace ese generar un espacio, no afecta ni el width ni height.
+
+IMPORTANTE:
+En caso de querer que el width y el height sean lo que colocamos y lo demas no afecte ese tamaño
+tendriamos que agregar la propiedad box-sizing: border-box, y ya con esto esos valores se 
+acomdan al width y height que se definio. y no afectan esos valores.
+
+POSITION (STATIC - ABSOLUTE - RELEATIVE - FIXED - STICKY)
+Por defecto los elementos en el dom o en la web son static esto quiere decir que se van acomodando 
+o apilando segun su orden.
+
+Cuando le colocamos a un elemento position obsolute, para fijarlo segun unas coordenadas.
+top left right o bottom, el lo que hace es buscar su elemento padre releativo, en caso de no
+encontrarlo se fijara del viewport.
+
+si deseamos que se fije en su elemento padre deberemos agregarle al padre la propiedad position 
+con el valor relative asi se fijara segun este.
+
+FIXED -> Es parecido al absolute, las coordenadas siempre van a ser relativas a la pantalla al viewport 
+y se quedara siempre vija en esa pocision asi hagas scroll.
+
+STICKY -> Se quedara fijo al contenedor padre relativo, hasta donde pueda, es decir fijo por todo el
+el tamaño del padre.
+
+Z-INDEX (CONTEXTO DE APILAMIENTO.)
+El z indez, basicamente sirve para ubicar los elementos en el eje Z ya que los elementos 
+que vamos creando en el documento HTML se van apilando. NOTA: el z-indez siempre 
+funcionara siempre y cuando se tenga un contexto de apilamiento.
+
+FLEX-BOX
+El flex es un valor de la propiedad display. esto hace que nuetro se contenido 
+se acomode en una direccion, por defecto es row, esto nos permite maquetar de una 
+manera facil, la principal diferencia de flex con grid es que es unidireccional
+ya sea row o column
+
+flex-grow -> valor defecto 0 -> indica si los elementos pueden crecer
+flex-shrink -> valor defecto 1 -> indica si los elementos pueden reducir su tamaño que el flex-basis
+flex-basis -> valor defecto auto -> indica el tamaño base de los elementos teniendo encuenta el contenido de cada uno. 
+
+flex: 1 -> haria que flex-grow: 1, flex-shrink: 1 y flex-basis: 0
