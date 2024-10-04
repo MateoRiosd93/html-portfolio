@@ -86,8 +86,147 @@ se acomode en una direccion, por defecto es row, esto nos permite maquetar de un
 manera facil, la principal diferencia de flex con grid es que es unidireccional
 ya sea row o column
 
+flex-direction -> valor defecto row -> eje principal
+
 flex-grow -> valor defecto 0 -> indica si los elementos pueden crecer
 flex-shrink -> valor defecto 1 -> indica si los elementos pueden reducir su tamaño que el flex-basis
 flex-basis -> valor defecto auto -> indica el tamaño base de los elementos teniendo encuenta el contenido de cada uno. 
 
 flex: 1 -> haria que flex-grow: 1, flex-shrink: 1 y flex-basis: 0
+
+order: ubica los elementos segun lo quieras. para visualizar cual es 1 o 2 o 3 segun los elementos que tengas 
+IMPORTANTE: Si solo es un tema visual, puedes aplicarlo si semanticamente debe ser un orden es mejor
+que se siga desde el HTML
+
+GRID
+Importante: unidade de medida unica para utilizar en grid -> fr: que significa una fraccion 
+el valor del fr, corresponde a porcentaje 
+ej: 
+- si indicamos que se tendra un grid-template-columns: 1fr -> esto quiere decir que el 1fr sera el 100%
+- en caso de tener 1fr 1fr sera 50% y 50% 
+- en caso de tener 1fr 100px ese fr equivale a 100% - 100px
+
+NOTA: Puede que encontremos cuadriculas sin elementos, ya que al crear el grid con 
+grid-template-columns y grid-template-rows se generen cuadriculas de mas.
+
+No necesesariamente una cuadricula debe tener un elemento esta puede estar vacia.
+
+metodo repeat() -> nos sirve para abreviar cosas como 
+ej: grid-template-columns: 1fr 1fr 1fr -> grid-template-columns: repeat(3, 1fr)
+ej: grid-template-columns: 25px 1fr 1fr 1fr -> grid-template-columns: 25px repeat(3, 1fr)
+ej: grid-template-columns: 25px 50px 25px 50px -> grid-template-columns: repeat(2, 25px 50px)
+
+metodo minmax(100px, 1fr)
+En caso de querer definir una columna un ancho minimo y si es mayor a eso en este caso que se comporte como 1fr
+
+IMPORTANTE COMO CREAR UNA LISTA DE PRODUCTOS RESPONSIVE CON GRID (Usando repeat, minmax y unos valores que se usan en grid auto-fit, auto-fill)
+auto-fill -> Agregar columnas mientras puedan ocupar el ancho, es decir si tengo 100px como minimo y en ancho del grid es de 250px el me ubicara dos columnas
+ejemplo: grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)) -> (rellena el contenido)
+
+auto-fit -> el auto fit lo que haria es que acomodaria los resultados en el espacio que tenga es decir si requiere agrandarlos los hara siempre tratando
+de ocupar todo el espacio. (ajusta - estirando el contenido)
+
+- Para indicar la posicion de un elemento en la cuadricula (grid) se utilizan
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+- Lo anterior se puede simplificar de la siguiente manera 
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+
+El grid-template-areas -> nos permite mapear como seria la cuadricula, teniendo en cuenta que cada uno de los elementos se le debe agregar el grid-area en donde definamos su 
+nombre para asi en el componente padre donde queremos la cuadricula o el diseño, podamos usar cada una de esas areas. 
+ej: grid-template-areas: 
+        "header header header"
+        "aside content content"
+        "footer footer footer" 
+
+        NOTA: En caso de querer tener un hueco colocaremos un .
+
+NOTA: para centrar la cuadricula con grid se utiliza (el content hace referencia y el items se refiere a los items)
+    justify-content: center
+    align-content: center
+
+    -> la forma abreviada de hacer lo anterior seria usar place-content: center
+
+ANIMACIONES Y TRANSICIONES
+En Css existen dos formas de realizar animar elementos, transiciones y las animaciones.
+
+-> Transiciones: podremos cambiar un elemento de un estado inicial a un estado objetivo.
+ej: cuando hacemos un hover sobre un elemento. 
+el estado inicial seria el elemento sin hover.
+y el estado final seria el elemento cuando le hacen hover. (hay se genera una transicion pasar de un estado a otro)
+
+IMPORTANTE: para que se genere la tansicion debemos agregarle la propiedad de transition
+NOTA: error comun, la transition debe de ir en elemento en su estado inicial, NO en su accion ej: hover
+
+NOTA: A veces es importante nosotros decir en la propiedad transition-property la propiedad a la cual 
+estamos realizando una transicion ya que por defecto esta all, y en ocaciosiones esto puede generar problemas.
+si tenemos muy claro que es lo que estamos animando, puede ser importante colocar esa propiedad en el transition-property.
+
+transition-timing-function -> esta propiedad nos dice en tiempo o como es el movimiento de la transicion por defecto es lineal
+demora en el tiempo de la duracion siempre es como el mismo movimiento o velocidad, pero en ocaciosiones es importante 
+o se desea que primero vaya rapido y luego lento, o al contrario primero lento y luego rapido pues es ahi donde debemos 
+colocar otro valor para que la transition tenga este movimiento.
+ej  easy-in -> inicia lento y se hace rapido al final
+    easy-out -> inicia rapido y termina lendo 
+    easy-in-out -> inicia rapido en la mitad se hace lento y al final se hace rapido.
+
+transition-delay -> esta propiedad nos permite indicar que espere un momento para empezar la transicion.
+cuando tenemos muchos elementos, si agregamos una transicion de golpe sobre todos puede ser molesto para el usuario
+ahi se podria aplicar el delay para hacerlo mas ameno.
+
+IMPORTANTE: la forma corta de aplicar estas propiedades. con la propiedad transition
+
+transition: transition-property, transition-duration, trasition-timing-function, transition-delay.
+
+NOTA: y en caso de querer animar varias propiedades, colocamos coma (,) al final y damos los valores a la siguiente propiedad
+si no colocamos alguno de esos valores tomara su valor por defecto all, 0s, linear, 0s
+
+PARA TENER EN CUENTA (TRUCOS IMPORTANTES)
+- Por lo general cuando hacemos una animacion, visualmente deseamos que esa transicion inicial sea mas lenta y al quitar la transicion 
+es decir volver a su estado original sea mas rapido para que pierda la atencion ya sobre eso que se realizo.
+en este caso, sobre la accion que se realiza ej: el hover ahi diremos que la transition duration sera mayor, por que este
+sera el estado inicial, es decir la primera animacion que se ejecuta, y en el elemento como tal, las propiedades que colocamos es el
+estado final aca sera mas rapido todo. 😋😋
+
+ANIMACIONES
+Son la forma que nos va a permitir como queremos que se anime algo. Se ultiza con la palabra @keyframes
+
+ej.
+@keyframes "nombre" {
+    "estado inicial" { -> 0%, 0s, from
+
+    }
+
+    "estado final" { 100%, to
+
+    }
+
+}
+
+NOTA: la animacion solo ocurre una vez y cuando termina vuelte a su estado inicial
+
+-> para utilizar nuestra animacion en el elemento que deseemos, asiganaremos 
+en la propiedad animation: "el nombre de nuestro keyframes", ademas de esto le diremos cuanto dura con la propiedad
+animation-duration.
+
+propiedades para las animaciones
+    animation-name
+    animation-duration
+    animation-delay
+    animation-timing-function
+    animation-iterarion-count
+
+-> una propiedad IMPORTANTE es la de animation-fill-mode, ya que como sabemos y lo vimos las animaciones siempre 
+vuelven a su estado inicial, pero en caso de que queramos que la animacion que se quede al final de la animacion.
+por defecto tiene el valor de none (que el elemento no mantiene ningun estado), pero tiene ademas:
+    backwards -> el elemento al inicio utiliza el keyframe inicial
+    forwards -> el elemento se queda al final de la animacion 
+    both -> utiliza los dos anteriores. (recomendado)
+
+    NOTA: Como queremos que este la animacion antes de iniciarse y despues
+
+Atajo: animation: name | duration | time-function | delay (opcional) | direction (opcional) | fill-mode (opcional) 
